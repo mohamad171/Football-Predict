@@ -1,0 +1,7 @@
+<page gravity="top">
+{% for item in nowmatches %}
+	<text style="centered">{{ item.FaDate }}</text>
+	<text style="centered"><b> {{item.HomeTeamName}} - {{item.AwayTeamName}} </b></text>
+	<divider/>
+{% endfor %}	
+</page>

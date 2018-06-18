@@ -1,0 +1,7 @@
+<page gravity="top">
+{% for item in nextmatches %}
+	<text style="centered">{{ item.datetime }}</text>
+	<text style="centered"><b> {{item.hometeamname}} - {{item.awayteamname}} </b></text>
+	<divider/>
+{% endfor %}	
+</page>

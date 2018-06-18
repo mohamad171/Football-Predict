@@ -1,0 +1,9 @@
+<page gravity="top">
+	{% for items in data%}
+	<card style="small">
+		<image  style="avatar" src="{{items.TeamImage}}"/>
+		<text><b>{{1}}- {{items.TeamName}}</b></text>
+	<text>{{items.NumberOfMatches}} بازی | {{items.Score}} امتیاز</text>
+	</card>
+	{% endfor %}
+</page>

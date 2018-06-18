@@ -1,0 +1,78 @@
+<page gravity="top">
+	<theme background="#388e3c" text="#eceff1" primary="#2e7d32"/>
+	<divider style="empty"/>
+	
+	<text>گروه A</text>
+	<divider style="empty"/>
+			<button style="primary" action="A/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="A/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="A/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+	<text>گروه B</text>
+	<divider style="empty"/>
+			<button style="primary" action="B/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="B/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="B/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه C</text>
+	<divider style="empty"/>
+			<button style="primary" action="C/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="C/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="C/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه D</text>
+	<divider style="empty"/>
+			<button style="primary" action="D/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="D/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="D/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه E</text>
+	<divider style="empty"/>
+			<button style="primary" action="E/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="E/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="E/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه F</text>
+	<divider style="empty"/>
+			<button style="primary" action="F/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="F/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="F/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه G</text>
+	<divider style="empty"/>
+			<button style="primary" action="G/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="G/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="G/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+		<text>گروه H</text>
+	<divider style="empty"/>
+			<button style="primary" action="H/leaguetable/">جدول لیگ</button>
+	
+		<dualbuttons>
+		<button style="primary" action="H/nowmatches/">برنامه بازی های گروه</button>
+		<button style="primary" action="H/videos/">خلاصه بازی (به زودی )</button>
+	</dualbuttons>
+	<divider/>
+
+</page>
