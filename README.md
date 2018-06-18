@@ -8,6 +8,8 @@ this project contains:
 - 2018 WorlCup Application (worlcup directory)
 - Amar Footballi android application backend (application directory)
 
-Amar footballi appication in cafebazaar:
+Amar footballi application in cafebazaar:
 
 [Download From Cafebazaar](https://cafebazaar.ir/app/ir.moderndata.fotballiamar/?l=fa)
+
+Help Me to Improve Application 💙😁
