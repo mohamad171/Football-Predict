@@ -1,0 +1,29 @@
+@font-face {
+    font-family: iransans;
+    src: url(fonts/IRANSansWeb.woff);
+}
+
+body{
+    font-family: iransans;
+    
+}
+.text-color{
+    color: #fff;
+    font-size: 0.8em;
+}
+.team-image{
+    width: 40px;
+    height: 40px;
+}
+.label {
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.match-table{
+    width: 85%
+}
+.match-table td{
+    width: 2%;
+}
