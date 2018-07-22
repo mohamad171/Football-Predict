@@ -15,7 +15,6 @@ from django.views.decorators.http import require_http_methods
 worlcup = WorldCupClass.WorlCup()
 
 
-
 # Create your views here.
 client = MongoClient("mongodb://localhost:8085/")
 

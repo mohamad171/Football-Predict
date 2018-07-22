@@ -25,7 +25,7 @@ SECRET_KEY = 'kkx6mjb(n@&eemch8ggjy3_l2$++1x4(oim5zb^q0_czynbhi='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['moderndata.ir']
+ALLOWED_HOSTS = ['192.168.1.105','localhost','moderndata.ir']
 
 
 # Application definition

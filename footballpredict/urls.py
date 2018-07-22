@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('worldcup',include('worldcup.urls')),
     path('application/',include('application.urls')),
+    path('application2018/',include('application2018.urls')),
+    path('',include('website.urls')),
     path('test/', include('django_prometheus.urls')),
     url(r'^http_monitor/', include('http_monitor.urls')),
 ]
