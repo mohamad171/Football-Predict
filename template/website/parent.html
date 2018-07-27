@@ -1,0 +1,184 @@
+
+<!--
+ * CoreUI - Open Source Bootstrap Admin Template
+ * @version v1.0.0-alpha.6
+ * @link http://coreui.io
+ * Copyright (c) 2017 creativeLabs Łukasz Holeczek
+ * @license MIT
+ -->
+ <!DOCTYPE html>
+ <html lang="fa"  dir="rtl">
+ <head>
+
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+     <meta name="author" content="Łukasz Holeczek">
+     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+     {% load staticfiles %}
+     <link rel="shortcut icon" href="{% static 'predictpanel/img/favicon.png' %}">
+     
+     <title>آمار فوتبالی | {% block title %}   {% endblock %}</title>
+ 
+     <!-- Icons -->
+     <link href="{% static 'predictpanel/css/font-awesome.min.css' %}" rel="stylesheet">
+     <link href="{% static 'predictpanel/css/simple-line-icons.css' %}  " rel="stylesheet">
+
+     <link rel="shortcut icon" href="{% static 'predictpanel/CodeMirror/lib/codemirror.css' %}">
+ 
+     <!-- Main styles for this application -->
+     <link href="{% static 'predictpanel/css/style.css' %}" rel="stylesheet">
+     <link href="{% static 'predictpanel/css/fa-datepicker.css' %}" rel="stylesheet">
+     <link href="{% static 'predictpanel/js/chosen/chosen.min.css' %}" rel="stylesheet">
+ </head>
+ 
+
+ 
+ <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+     <header class="app-header navbar">
+
+ 
+     </header>
+ 
+     <div class="app-body">
+         <div class="sidebar">
+             <nav class="sidebar-nav">
+                 <ul class="nav">
+                     <li class="nav-title">
+                         <i class="icon-layers "></i> منو
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'main' %}" class="nav-link"><i class="fa fa-home"></i>خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'leagues' %}" class="nav-link"><i class="fa fa-gamepad"></i>لیگ ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'clubs' %}" class="nav-link"><i class="fa fa-soccer-ball-o"></i>باشگاه ها</a>
+                        </li>
+                        <li class="nav-title">
+                            <i class="icon-layers "></i> مسابقات
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'matches' %}" class="nav-link"><i class="fa fa-home"></i>افزودن مسابقه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'results' %}" class="nav-link"><i class="fa fa-home"></i>افزودن نتیجه</a>
+                        </li>
+                        <li class="nav-title">
+                            <i class="icon-layers "></i> آمار و اطلاعات
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'main' %}" class="nav-link"><i class="fa fa-home"></i>کاربران</a>
+                        </li>
+                 </ul>
+             </nav>
+         </div>
+ 
+         
+
+
+
+
+
+         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{% block modal_title %}{% endblock %}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% block modal_content %}{% endblock %}
+                    </div>
+                    <div class="modal-footer">
+                        {% block modal_footer %}{% endblock %}
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+         <main class="main">
+           
+             <!-- Breadcrumb -->
+             <ol class="breadcrumb">
+                 <li class="breadcrumb-item">میزکار</li>
+              
+                 <li class="breadcrumb-item active">{% block crumb %}{% endblock %}</li>
+ 
+                
+             </ol>
+ 
+ 
+             <div class="container-fluid">
+ 
+                 <div class="animated fadeIn">
+                     
+{% block content %}
+
+{% endblock %}
+
+
+
+                 
+                 </div>
+ 
+ 
+             </div>
+             <!-- /.conainer-fluid -->
+         </main>
+ 
+       
+ 
+     </div>
+ 
+     <footer class="app-footer ltr">
+         
+     </footer>
+ 
+     <!-- Bootstrap and necessary plugins -->
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+     <script src="{% static 'predictpanel/bower_components/jquery/dist/jquery.min.js' %}"></script>
+     <script src="{% static 'predictpanel/bower_components/popper.js/dist/umd/popper.min.js' %}"></script>
+     <script src="{% static 'predictpanel/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'predictpanel/bower_components/pace/pace.min.js' %}"></script>
+     <script src="{% static 'predictpanel/CodeMirror/lib/codemirror.js' %}"></script>
+     <script src="{% static 'predictpanel/js/chosen/chosen.jquery.min.js' %}"></script>
+     <!-- Plugins and scripts required by all views -->
+     <script src="{% static 'predictpanel/bower_components/chart.js/dist/Chart.min.js' %}"></script>
+ 
+     <!-- GenesisUI main scripts -->
+     <script src="{% static 'predictpanel/js/app.js' %}"></script>
+     <script src="{% static 'predictpanel/js/notify.js' %}"></script>
+     <script src="{% static 'predictpanel/js/fa-datepicker.js' %}"></script>
+     <script src="{% static 'predictpanel/js/jalalli.js' %}"></script>
+ 
+ 
+     <!-- Plugins and scripts required by this views -->
+ 
+     <!-- Custom scripts required by this view -->
+     <script src="{% static 'predictpanel/js/views/main.js' %}"></script>
+ 
+     {% block script %} 
+     
+     {% endblock %}
+     
+ </body>
+ 
+ </html>

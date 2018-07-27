@@ -1,0 +1,125 @@
+{% extends 'website/parent.html' %}
+
+{% block title%} لیگ ها {% endblock %}
+
+{% block crumb %}
+لیگ ها
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>لوگوی لیگ</th>
+                            <th>نام لیگ</th>
+                            <th>تیم های لیگ</th>
+                            <th>فصل جاری</th>
+                            <th>مجموع بازی ها</th>
+                            <th>هفته فعلی</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for l in data %}
+                        <tr>
+                            <td><img style="width: 80px;height: 80;" src="{{l.LeagueLogoUrl}}"></td>
+                            <td>{{l.LeagueName}}</td>
+                            <td>{{l.LegaueTeamsCount}}</td>
+                            <td>{{l.LeagueSeason}}</td>
+                            <td>{{l.LeagueMaxMatches}}</td>
+                            <td>{{l.LeagueCurrentMatchDay}}</td>
+
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+                
+            </div>
+            
+        </div>
+        <!--/.row-->
+       
+    </div>
+    <div class="card-footer" dir="ltr">
+        <ul>
+            <li>
+                    <button  type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i>&nbsp;افزودن لیگ جدید</button>
+            </li>
+           
+        </ul>
+    </div>
+   
+</div>
+<!--/.card-->
+
+{% endblock %}
+{% block modal_title %}افزودن لیگ جدید{% endblock %}
+{% block modal_content %}
+<form action="{% url 'leagues' %}" method="POST">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">نام لیگ</span>
+            <input type="text" id="leaguename" name="leaguename" class="form-control">
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">تعداد تیم ها</span>
+            <input type="number" id="teamscount" name="teamscount" class="form-control">
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">فصل جاری</span>
+            <input type="text" id="seaseon" name="seaseon" class="form-control" value="2018-2019">
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">مجموع بازی ها</span>
+            <input type="number" id="matchescount" name="matchescount" class="form-control">
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">آدرس تصویر</span>
+            <input type="text" id="logourl" name="logourl" class="form-control">
+            </span>
+        </div>
+    </div>
+   
+
+{% endblock %}
+{% block modal_footer %}
+
+            <button  type="submit" class="btn btn-outline-success"><i class="fa fa-save"></i>&nbsp;ثبت لیگ</button>
+        </form>
+{% endblock %}
+
+{% block script %}
+<script>
+
+    $(function(){
+     $('form').on('submit', function(e){
+         e.preventDefault();
+         $.ajax({
+             url: $(this).attr('action'),
+             data: $(this).serialize(),
+             method: $(this).attr('method'),
+             success: function(data){ document.location.reload(true) }
+         });
+     });
+});
+</script>
+
+
+{% endblock %}

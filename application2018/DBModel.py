@@ -1,7 +1,7 @@
 from mongoengine import *
 
 
-connect("AmarFootballi2018",host="localhost",port=2017)
+connect("AmarFootballi2018",host="localhost",port=27017)
 
 class LeaguesData(Document):
     LeagueName = StringField(required=True)
@@ -10,6 +10,7 @@ class LeaguesData(Document):
     LeagueLogoUrl = StringField(required=True)
     LeagueMaxMatches = IntField(required=True)
     LeagueCurrentMatchDay = IntField(required=True)
+    IsActive = BooleanField(required=True)
 class TeamsData(Document):
     TeamName = StringField(required=True)
     FaTeamName = StringField(required=True)
@@ -21,6 +22,7 @@ class MatchData(Document):
     League = ReferenceField(LeaguesData,required=True)
     Date = StringField(required=True)
     Time = StringField(required=True)
+    isActive = BooleanField(required=True)
 class GroupTable(Document):
     TeamName = ReferenceField(TeamsData,required=True)
     GoalsRecived = IntField(required = True)
@@ -43,7 +45,7 @@ class MatchResults(Document):
     HomeCorners = IntField(required=True)
     AwayCorners = IntField(required=True)
     WinnerTeam = StringField(required=True)
-    isSet = IntField(required=True)
+    isSet = BooleanField(required=True)
 class UsersData(Document):
     DeviceId = StringField(required=True)
     Fname = StringField()

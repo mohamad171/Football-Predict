@@ -1,0 +1,50 @@
+{% extends 'website/parent.html' %}
+
+{% block title%} باشگاه ها {% endblock %}
+
+{% block crumb %}
+باشگاه ها
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+                <div class="col-sm-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>لوگوی باشگاه</th>
+                                    <th>نام باشگاه</th>
+                                    <th>نام لیگ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for l in data %}
+                                <tr>
+                                    <td><img style="width: 80px;height: 80;" src="{{l.ImageUrl}}"></td>
+                                    <td>{{l.FaTeamName}}</td>
+                                    <td>{{l.LeagueName}}</td>
+        
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                        
+                    </div>
+            
+        </div>
+        <!--/.row-->
+        <div class="chart-wrapper" style="margin-top:40px;">
+                
+        </div>
+    </div>
+    <div class="card-footer" dir="ltr">
+           
+    </div>
+</div>
+<!--/.card-->
+
+{% endblock %}
+

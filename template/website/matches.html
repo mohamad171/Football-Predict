@@ -1,0 +1,162 @@
+{% extends 'website/parent.html' %}
+
+{% block title%} مسابقات {% endblock %}
+
+{% block crumb %}
+مسابقات
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>تیم میزبان</th>
+                            <th>تیم مهمان</th>
+                            <th>تاریخ مسابقه</th>
+                            <th>ساعت مسابقه</th>
+                            <th>نام لیگ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for l in matches %}
+                        <tr>
+                            <td><img src="{{l.HomeTeamImage}}" style="height: 20px;width: 20px;"> {{l.HomeTeam}}</td>
+                            <td><img src="{{l.AwayTeamImage}}" style="height: 20px;width: 20px;"> {{l.AwayTeam}}</td>
+                            <td>{{l.Date}}</td>
+                            <td>{{l.Time}}</td>
+                            <td><img src="{{l.LeagueImage}}" style="height: 20px;width: 20px;"> {{l.League}}</td>
+
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <!--/.row-->
+        <div class="chart-wrapper" style="margin-top:40px;">
+                
+        </div>
+    </div>
+    <div class="card-footer" dir="ltr">
+        <ul>
+            <li>
+                    <button  type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i>&nbsp;افزودن مسابقه جدید</button>
+            </li>
+           
+        </ul> 
+    </div>
+</div>
+<!--/.card-->
+
+{% endblock %}
+
+{% block modal_title %}افزودن لیگ جدید{% endblock %}
+{% block modal_content %}
+<form action="{% url 'matches' %}" method="POST">
+   
+    <div class="form-group col-sm-6">
+        <label for="ccmonth">لیگ</label>
+        <select class="form-control" id="leagues" style="height: 50px;">
+            {% for l in leagues %}
+            <option value="{{l.id}}">{{l.LeagueName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group col-sm-6">
+            <label for="ccmonth">باشگاه میزبان</label>
+            <select class="form-control" id="homeclub" style="height: 50px;">
+                
+            </select>
+        </div>
+
+        <div class="form-group col-sm-6">
+            <label for="ccmonth">باشگاه مهمان</label>
+            <select class="form-control" id="awayclub" style="height: 50px;">
+                
+            </select>
+        </div>
+            
+        <div class="form-group col-sm-9">
+                <div class="input-group">
+                    <span class="input-group-addon">تاریخ بازی</span>
+                    <input type="text" id="matchdate" class="form-control">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-sm-9">
+                    <div class="input-group">
+                        <span class="input-group-addon">ساعت بازی</span>
+                        <input type="text" id="matchtime"  class="form-control">
+                        </span>
+                    </div>
+                </div>    
+
+{% endblock %}
+{% block modal_footer %}
+
+            <button  type="submit" class="btn btn-outline-success"><i class="fa fa-save"></i>&nbsp;ثبت مسابقه</button>
+        </form>
+{% endblock %}
+
+
+{% block script %}
+
+
+
+
+
+
+<script> 
+    $(function(){
+     $('form').on('submit', function(e){
+         e.preventDefault();
+         $.ajax({
+             url: $(this).attr('action'),
+             data: {"leagueid":$('#leagues option:selected').val(),"hometeam": $('#homeclub option:selected').val() , "awayteam":$('#awayclub option:selected').val(),"date":$("#matchdate").val(),"time":$("#matchtime").val()},
+             method: $(this).attr('method'),
+             success: function(data){ document.location.reload(true) }
+         });
+     });
+    
+$( "#leagues" ).change(function() {
+    $.ajax({
+             url: "{% url 'matches' %}",
+             data: {"leagueid": this.value },
+             method: "POST",
+             success: function(data){ 
+                    jsdata = JSON.parse(data)
+                    $('#homeclub')
+                    .find('option')
+                    .remove()
+                    $('#awayclub')
+                    .find('option')
+                    .remove()
+                    for(var i = 0 ; i < jsdata["teams"].length;i++){
+                        $('#homeclub').append($('<option>', {
+                        value: jsdata["teams"][i]["id"],
+                        text: jsdata["teams"][i]["TeamName"]
+                            }));
+                        $('#awayclub').append($('<option>', {
+                        value: jsdata["teams"][i]["id"],
+                        text: jsdata["teams"][i]["TeamName"]
+                            }));
+                    }
+                
+             }
+         });
+});
+
+
+
+});
+</script>
+
+
+{% endblock %}

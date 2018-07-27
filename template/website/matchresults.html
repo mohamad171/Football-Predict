@@ -1,0 +1,202 @@
+{% extends 'website/parent.html' %}
+
+{% block title%} نتیجه مسابقات {% endblock %}
+
+{% block crumb %}
+نتیجه مسابقات
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                    <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>تیم میزبان</th>
+                                    <th>تیم مهمان</th>
+                                    <th>تاریخ مسابقه</th>
+                                    <th>ساعت مسابقه</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for l in results %}
+                                <tr>
+                                    <td><img src="{{l.HomeTeamImage}}" style="height: 20px;width: 20px;"> {{l.HomeTeamName}}</td>
+                                    <td><img src="{{l.AwayTeamImage}}" style="height: 20px;width: 20px;"> {{l.AwayTeamName}}</td>
+                                    <td>{{l.MatchDate}}</td>
+                                    <td>{{l.MatchTime}}</td>
+        
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>                
+            </div>
+            
+        </div>
+        <!--/.row-->
+        <div class="chart-wrapper" style="margin-top:40px;">
+                
+        </div>
+    </div>
+    <div class="card-footer" dir="ltr">
+            <ul>
+                    <li>
+                            <button  type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i>&nbsp;افزودن نتیجه جدید</button>
+                    </li>
+                   
+                </ul> 
+    </div>
+</div>
+<!--/.card-->
+
+{% endblock %}
+
+{% block modal_title %}افزودن نتیجه جدید{% endblock %}
+{% block modal_content %}
+<form action="{% url 'results' %}" method="POST">
+   
+    <div class="form-group col-sm-6">
+        <label for="ccmonth">مسابقه</label>
+        <select class="form-control" id="matchselect" name="matchid" style="height: 50px;">
+               
+            {% for l in matches %}
+            <option value="{{l.id}}">{{l.HomeTeamName}} - {{l.AwayTeamName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <hr>
+    <h6 id="homeh6"></h6>
+        <div class="form-group col-sm-9">
+                <div class="input-group">
+                    <span class="input-group-addon"> تعداد گل </span>
+                    <input type="text" id="homegoals" name="homegoals" class="form-control">
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-9">
+                    <div class="input-group">
+                        <span class="input-group-addon">میزان مالکیت (٪) </span>
+                        <input type="text" id="homeposition" name="homeposition" class="form-control">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-9">
+                        <div class="input-group">
+                            <span class="input-group-addon">کارت زرد </span>
+                            <input type="text" id="homeyellowcard" name="homeyellowcard" class="form-control">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon">کارت های قرمز </span>
+                                <input type="text" id="homeredcard" name="homeredcard" class="form-control">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon">تعداد پاس  </span>
+                                    <input type="text" id="homepasses" name="homepasses" class="form-control">
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">تعداد کرنر  </span>
+                                        <input type="text" id="homecorners" name="homecorners" class="form-control">
+                                        </span>
+                                    </div>
+                                </div>
+<hr>
+<h6 id="awayh6"></h6>
+            <div class="form-group col-sm-9">
+                    <div class="input-group">
+                        <span class="input-group-addon">تعداد گل ها</span>
+                        <input type="text" id="awayoals" name="awaygoals"  class="form-control">
+                        </span>
+                    </div>
+                </div> 
+                
+                    <div class="form-group col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon">میزان مالکیت (٪)</span>
+                                <input type="text" id="awayposition" name="awayposition" class="form-control">
+                                </span>
+                            </div>
+                        </div>
+                        
+                            <div class="form-group col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">کارت زرد </span>
+                                        <input type="text" id="awayyelowcard" name="awayyelowcard" class="form-control">
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                    <div class="form-group col-sm-9">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">کارت های قرمز </span>
+                                                <input type="text" id="awayredcard" name="awayredcard" class="form-control">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        
+                                            <div class="form-group col-sm-9">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">تعداد پاس  </span>
+                                                        <input type="text" id="awaypasses" name="awaypasses" class="form-control">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                
+                                                    <div class="form-group col-sm-9">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">  تعداد کرنر  </span>
+                                                                <input type="text" id="awaycorners" name="awaycorners" class="form-control">
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                              
+
+{% endblock %}
+{% block modal_footer %}
+
+            <button  type="submit" class="btn btn-outline-success"><i class="fa fa-save"></i>&nbsp;ثبت نتیجه</button>
+        </form>
+{% endblock %}
+
+    {% block script %}
+    <script>
+        
+    $('form').on('submit', function(e){
+         e.preventDefault();
+         $.ajax({
+             url: $(this).attr('action'),
+             data:  $(this).serialize(),
+             method: $(this).attr('method'),
+             success: function(data){ document.location.reload(true) }
+             
+         });
+     });
+        
+$( "#matchselect" ).change(function() {
+    hometeam = $('#matchselect option:selected').text().split("-")[0]
+    awayteam = $('#matchselect option:selected').text().split("-")[1]
+    $("#awayh6").text("اطلاعات تیم "+awayteam) 
+    $("#homeh6").text("اطلاعات تیم "+hometeam)
+    
+});
+   
+    
+    </script>
+    {% endblock %}

@@ -1,7 +1,7 @@
 from mongoengine import *
 
 
-connect("AmarFootballiORM",host="localhost",port=8085)
+#connect("AmarFootballiORM",host="localhost",port=27017)
 
 class TeamsData(Document):
     TeamName = StringField(required=True)

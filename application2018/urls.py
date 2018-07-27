@@ -3,6 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('getleagues',views.leaguetable,name='leagutable'),
+    # path('getleagues',views.leaguetable,name='leagutable'),
 
 ]
